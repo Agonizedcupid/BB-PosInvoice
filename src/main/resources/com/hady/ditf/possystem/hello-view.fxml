@@ -4,6 +4,7 @@
 <?import javafx.scene.layout.GridPane?>
 <?import javafx.scene.layout.ColumnConstraints?>
 <?import javafx.scene.layout.RowConstraints?>
+<?import javafx.geometry.Insets?>
 
 <GridPane fx:controller="com.hady.ditf.possystem.HelloController" xmlns:fx="http://javafx.com/fxml">
     <columnConstraints>
@@ -12,13 +13,15 @@
     </columnConstraints>
     <rowConstraints>
         <RowConstraints percentHeight="10"/>
-        <RowConstraints percentHeight="80"/>
-        <RowConstraints percentHeight="10"/>
+        <RowConstraints percentHeight="70"/>
+        <RowConstraints percentHeight="20"/>
+        <RowConstraints percentHeight="5"/>  <!-- New row for buttons -->
+        <RowConstraints percentHeight="5"/>  <!-- New row for buttons -->
     </rowConstraints>
 
     <TextField fx:id="barcodeInput" GridPane.rowIndex="0" GridPane.columnSpan="2"/>
     <TableView fx:id="tableView" GridPane.rowIndex="1" GridPane.columnSpan="2">
-        <!-- TableColumn definitions, make sure these IDs match your controller -->
+        <!-- TableColumn definitions -->
         <columns>
             <TableColumn fx:id="serialNoColumn" text="Serial No."/>
             <TableColumn fx:id="nameColumn" text="Product Name"/>
@@ -27,6 +30,67 @@
             <TableColumn fx:id="totalColumn" text="Total"/>
         </columns>
     </TableView>
-    <!-- Other UI elements -->
+
+    <!-- Summary Section -->
+    <GridPane GridPane.rowIndex="2" GridPane.columnSpan="2" hgap="10" vgap="10">
+        <padding>
+            <Insets top="10" right="50" bottom="25" left="50"/>
+        </padding>
+
+        <columnConstraints>
+            <ColumnConstraints percentWidth="25"/>
+            <ColumnConstraints percentWidth="25"/>
+            <ColumnConstraints percentWidth="25"/>
+            <ColumnConstraints percentWidth="25"/>
+        </columnConstraints>
+
+        <Label text="Total:" GridPane.columnIndex="0"/>
+        <Label fx:id="totalField" GridPane.columnIndex="1">
+            <GridPane.margin>
+                <Insets left="10"/>
+            </GridPane.margin>
+        </Label>
+
+        <Label text="Discount:" GridPane.columnIndex="0" GridPane.rowIndex="1"/>
+        <Label fx:id="discountField" GridPane.columnIndex="1" GridPane.rowIndex="1">
+            <GridPane.margin>
+                <Insets left="10"/>
+            </GridPane.margin>
+        </Label>
+
+        <Label text="Payable Amount:" GridPane.columnIndex="2"/>
+        <Label fx:id="payableField" GridPane.columnIndex="3">
+            <GridPane.margin>
+                <Insets left="10"/>
+            </GridPane.margin>
+        </Label>
+
+        <Label text="Cash Received:" GridPane.columnIndex="2" GridPane.rowIndex="1"/>
+        <TextField fx:id="cashReceivedField" GridPane.columnIndex="3" GridPane.rowIndex="1">
+            <GridPane.margin>
+                <Insets left="10"/>
+            </GridPane.margin>
+        </TextField>
+
+        <Label text="Change Amount:" GridPane.columnIndex="2" GridPane.rowIndex="2"/>
+        <Label fx:id="changeField" GridPane.columnIndex="3" GridPane.rowIndex="2">
+            <GridPane.margin>
+                <Insets left="10"/>
+            </GridPane.margin>
+        </Label>
+    </GridPane>
+
+    <!-- Existing elements... -->
+
+    <!-- Print Buttons -->
+<!--    <Button text="Print Student Invoice" minHeight="50" fx:id="printStudentInvoiceButton" onAction="#printStudentInvoice" GridPane.columnIndex="0" GridPane.rowIndex="3" GridPane.columnSpan="2"/>-->
+<!--    <Button text="Print Inventory Invoice" minHeight="50" fx:id="printInventoryInvoiceButton" onAction="#printInventoryInvoice" GridPane.columnIndex="2" GridPane.rowIndex="3" GridPane.columnSpan="2"/>-->
+
+    <!-- Print Buttons -->
+    <Button text="Print Student Invoice" minHeight="50" fx:id="printStudentInvoiceButton" onAction="#printStudentInvoice" GridPane.columnIndex="0" GridPane.rowIndex="3" GridPane.columnSpan="1"/>
+    <Button text="Print Inventory Invoice" minHeight="50" fx:id="printInventoryInvoiceButton" onAction="#printInventoryInvoice" GridPane.columnIndex="1" GridPane.rowIndex="3" GridPane.columnSpan="1"/>
+
 </GridPane>
+
+
 
